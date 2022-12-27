@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:list/screen/list.dart';
 
+import 'screen/detail.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/': (context) => const ListScreen(),
+        '/detail': (context) => const DetailScreen(),
       },
       initialRoute: '/',
     );

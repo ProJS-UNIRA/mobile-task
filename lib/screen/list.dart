@@ -42,12 +42,17 @@ class _ListScreenState extends State<ListScreen> {
         itemBuilder: (context, index) {
           var animal = _list[index];
 
-          return ListTile(
-            leading: CircleAvatar(backgroundColor: Colors.red,
-            backgroundImage: NetworkImage('https://loremflickr.com/480/480/${animal.kode}'),),
-            title: Text(animal.nama),
-            subtitle: Text('Jenis: ${animal.jenis}'),
-            trailing: Text('${animal.jumlahKaki}'),
+          return GestureDetector(
+            onTap: () => {
+              Navigator.pushNamed(context, '/detail', arguments: animal)
+            },
+            child: ListTile(
+              leading: CircleAvatar(backgroundColor: Colors.red,
+              backgroundImage: NetworkImage('https://loremflickr.com/480/480/${animal.kode}'),),
+              title: Text(animal.nama),
+              subtitle: Text('Jenis: ${animal.jenis}'),
+              trailing: Text('${animal.jumlahKaki}'),
+            ),
           );
         },
         separatorBuilder: (context, index) => const Divider(),
